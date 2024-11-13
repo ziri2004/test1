@@ -21,20 +21,18 @@ stateDiagram-v2
     已完成 --> [*]
     已退款 --> [*]
 ```
-# 电商订单状态流转图
-
 ```mermaid
 stateDiagram-v2
-    %% 定义所有状态 (s 开头)
-    state "s1:待付款" as s1
-    state "s2:待发货" as s2
-    state "s3:待收货" as s3
-    state "s4:已完成" as s4
-    state "s5:已取消" as s5
-    state "s6:退款中" as s6
-    state "s7:已退款" as s7
+    %% 定义所有状态
+    state s1 "待付款"
+    state s2 "待发货"
+    state s3 "待收货"
+    state s4 "已完成"
+    state s5 "已取消"
+    state s6 "退款中"
+    state s7 "已退款"
 
-    %% 定义所有转换 (t 开头)
+    %% 定义所有转换
     [*] --> s1: t1:创建订单
     s1 --> s5: t2:超时/主动取消
     s1 --> s2: t3:支付成功
